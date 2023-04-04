@@ -1,2 +1,6 @@
 ---
-ip_address: '192.168.55.10'
+ip_address: '192.168.0.210'
+username: 'api-admin'
+password: 'Panos@12345'
+api_key: 'LUFRPT1kZGQyQ1lBd3Z1Ylh4cVFaRFk4WnlHRSttaVU9TExHTWFPcUFrYncxRExWSXlrSGNoamNjbVdVbFM2RElUK2ptczk5Z0RCQlBVNXRtVGxTZkZ6L0IvcG9MTWRyUA=='
+

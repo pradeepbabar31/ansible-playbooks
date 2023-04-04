@@ -1,0 +1,49 @@
+## So a playbook is comprise a set of plays
+# ansible -m copy -a "src=/home/centos/apple dest=/home/centos/test/apple" localhost
+
+
+# - name: Ensure file apple copied from /home/centos
+#   hosts: localhost
+#   tasks:
+#   - copy: src="/home/centos/me" dest="/home/centos/test/"
+
+- name: Remove file (delete file)
+  hosts: localhost
+  tasks:
+    - name: Remove files
+      file:
+        path: /home/centos/aise
+        state: absent
+                
+- name: Report hostname and OS details
+  hosts: localhost
+  tasks:
+    - name: "Get Hostname of devices"
+      debug:
+        msg: "{{ansible_hostname}}"
+    
+- name: Get my logo details
+  hosts: localhost
+  vars_files:
+  - mylogo.yml
+
+  tasks:
+   - name: Print my logo name from variable
+     debug: msg="Hello {{my_CV}}"
+   - name: Loop over list
+     with_items: "{{ quotes }}"
+     debug: msg="{{ item }}"
+
+
+- name: Generate Config from tempalte
+  hosts: localhost
+  vars:
+     feature: bgp
+     asn: 65001
+     router_id: 10.0.0.1
+
+  tasks:
+  - name: "Generating COnfig"
+    template:
+     src: "jinja.j2"
+     dest: "/home/centos/ansible-playbooks/example.conf"
